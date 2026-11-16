@@ -93,10 +93,10 @@
           gallerySlots: [
             { title: 'Foto Keseluruhan Mesin Dip-Coater Otomatis (Dokumentasi Asli)', assetPath: 'assets/images/dip-coater-machine.jpg', type: 'real-image', status: 'Foto Asli Terpasang' },
             { title: 'Diagram Mekanik & Gerak Aktuator Dip-Coater', assetPath: 'assets/images/dip-coater-schematic.svg', type: 'svg-dip', status: 'Tersedia (Skematik Interaktif)' },
-            { title: 'Foto Mekanisme Linear Motion & Leadscrew', assetPath: 'assets/images/dip-coater-linear.png', type: 'real-image', status: 'Foto Asli Terpasang' },
+            { title: 'Foto Mekanisme Linear Motion & Leadscrew', assetPath: 'assets/images/dip-coater-linear.jpg', type: 'real-image', status: 'Foto Asli Terpasang' },
             { title: 'Foto Sistem Elektronik (ESP32-S3 & TMC2209)', assetPath: 'assets/images/dip-coater-electronics.jpg', type: 'placeholder', status: 'Slot Dokumentasi Siap Ganti' },
-            { title: 'Foto Antarmuka Layar Sentuh Kapasitif', assetPath: 'assets/images/dip-coater-touchscreen.jpeg', type: 'real-image', status: 'Foto Asli Terpasang' },
-            { title: 'Screenshot Desain CAD Parametrik (FreeCAD)', assetPath: 'assets/images/dip-coater-cad.png', type: 'real-image', status: 'Foto Asli Terpasang' }
+            { title: 'Foto Antarmuka Layar Sentuh Kapasitif', assetPath: 'assets/images/dip-coater-touchscreen.jpg', type: 'real-image', status: 'Foto Asli Terpasang' },
+            { title: 'Screenshot Desain CAD Parametrik (FreeCAD)', assetPath: 'assets/images/dip-coater-cad.jpg', type: 'real-image', status: 'Foto Asli Terpasang' }
           ]
         }
       },
