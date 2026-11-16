@@ -1,0 +1,269 @@
+/* ==========================================================================
+       DESIGN TOKENS (SECTION 4 — VISUAL DESIGN DIRECTION & ORIGINAL HTML DNA)
+       ========================================================================== */
+    :root {
+      --bg: #F8FAFC;
+      --bg2: #F1F5F9;
+      --card: #FFFFFF;
+      --tx: #111827;
+      --tx2: #64748B;
+      --ac: #2563EB;
+      --ac-soft: rgba(37, 99, 235, 0.10);
+      --ln: rgba(15, 23, 42, 0.08);
+      --nav: rgba(248, 250, 252, 0.78);
+      --ok: #10B981;
+      --shadow-card: 0 20px 50px -20px rgba(15, 23, 42, 0.07), 0 4px 16px -4px rgba(15, 23, 42, 0.03);
+      --shadow-hover: 0 30px 60px -24px rgba(37, 99, 235, 0.16), 0 8px 24px -6px rgba(15, 23, 42, 0.06);
+    }
+    html.dark {
+      color-scheme: dark;
+      --bg: #090D16;
+      --bg2: #111827;
+      --card: #151E2D;
+      --tx: #F8FAFC;
+      --tx2: #94A3B8;
+      --ac: #3B82F6;
+      --ac-soft: rgba(59, 130, 246, 0.14);
+      --ln: rgba(255, 255, 255, 0.09);
+      --nav: rgba(9, 13, 22, 0.78);
+      --shadow-card: 0 24px 60px -20px rgba(0, 0, 0, 0.55);
+      --shadow-hover: 0 32px 70px -20px rgba(59, 130, 246, 0.22), 0 0 30px -8px rgba(59, 130, 246, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 76px;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--tx);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background-color 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--ac);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    /* Subtle Engineering Blueprint Grid */
+    .bg-blueprint {
+      background-size: 48px 48px;
+      background-image:
+        linear-gradient(to right, var(--ln) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--ln) 1px, transparent 1px);
+    }
+
+    /* Preserved Concentric Expanding Signal Rings from Andi Lutfi – Portofolio.html */
+    .rings {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .rings i {
+      position: absolute;
+      width: 1200px;
+      height: 1200px;
+      border: 1px solid var(--ac);
+      border-radius: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.2);
+      animation: ring 9s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+    }
+    .rings i:nth-child(2) { animation-delay: 3s; }
+    .rings i:nth-child(3) { animation-delay: 6s; }
+    @keyframes ring {
+      0% { opacity: 0.38; transform: translate(-50%, -50%) scale(0.2); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    /* Preserved Hero Headline Staggered Reveal from Andi Lutfi – Portofolio.html */
+    .hero-line {
+      display: block;
+      overflow: hidden;
+      padding-bottom: 0.06em;
+    }
+    .hero-line em {
+      display: block;
+      font-style: normal;
+      transform: translateY(108%);
+      animation: hero-up 1.05s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+    .hero-line:nth-child(2) em { animation-delay: 0.14s; }
+    .hero-line:nth-child(3) em { animation-delay: 0.28s; }
+    @keyframes hero-up {
+      to { transform: none; }
+    }
+
+    /* Preserved Animated SVG Keyframes from Andi Lutfi – Portofolio.html */
+    .beam {
+      animation: dip 6s ease-in-out infinite;
+    }
+    @keyframes dip {
+      0%, 15% { transform: translateY(0); }
+      45%, 60% { transform: translateY(74px); }
+      90%, 100% { transform: translateY(0); }
+    }
+    .pulse {
+      animation: pls 3s ease-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+    @keyframes pls {
+      0% { opacity: 0.7; transform: scale(0.4); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+    .needle {
+      transform-origin: 100px 110px;
+      animation: nd 7s ease-in-out infinite;
+    }
+    @keyframes nd {
+      0%, 100% { transform: rotate(-50deg); }
+      35% { transform: rotate(30deg); }
+      50% { transform: rotate(18deg); }
+      70% { transform: rotate(24deg); }
+    }
+
+    /* Apple-Inspired Elevated Card */
+    .glass-card {
+      background-color: var(--card);
+      border: 1px solid var(--ln);
+      box-shadow: var(--shadow-card);
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(37, 99, 235, 0.32);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Apple Pill Buttons & Micro-Interactions */
+    .btn-spectacular {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+    .btn-spectacular:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+    .btn-spectacular:active {
+      transform: translateY(0) scale(0.985);
+    }
+
+    /* Scroll-Triggered Reveal (.rv) from Original HTML */
+    .rv {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .rv.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Scroll-Driven Timeline (#tl and #fill) from Original HTML */
+    .tl {
+      position: relative;
+      padding-left: 36px;
+    }
+    .tl::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--ln);
+    }
+    .tl .fill {
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      width: 2px;
+      height: 0;
+      background: var(--ac);
+      transition: height 0.15s linear;
+    }
+    .job {
+      position: relative;
+      padding-bottom: 48px;
+    }
+    .job:last-child {
+      padding-bottom: 0;
+    }
+    .job::before {
+      content: "";
+      position: absolute;
+      left: -35px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2.5px solid var(--ac);
+      z-index: 2;
+    }
+
+    /* Custom Range Input */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(100, 116, 139, 0.25);
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--ac);
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.18);
+    }
+
+    /* Ripple Circle */
+    .ripple-circle {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple-anim 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background-color: rgba(255, 255, 255, 0.28);
+      pointer-events: none;
+    }
+    @keyframes ripple-anim {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    /* Reduced Motion Accessibility Support (Section 8 & 10) */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+      .hero-line em, .rv {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }

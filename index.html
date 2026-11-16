@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Andi Lutfi — Physics Instrumentation, Embedded Systems &amp; IoT Engineering Portfolio</title>
+  <meta name="description" content="Portofolio rekayasa resmi Andi Lutfi — Mahasiswa Fisika Instrumentasi Universitas Pendidikan Indonesia. Berfokus pada Instrumentation Engineering, Embedded Systems, IoT, Hardware Development, dan R&amp;D." />
+  <meta property="og:title" content="Andi Lutfi — Engineering Ideas into Real-World Systems" />
+  <meta property="og:description" content="Portofolio Fisika Instrumentasi, Embedded Systems, IoT (Smart Farming LoRa 10 km), dan R&amp;D Mesin Dip-Coater Otomatis." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232563EB'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23FFFFFF' font-family='Inter,sans-serif' font-weight='700' font-size='28'%3EAL%3C/text%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="selection:bg-blue-600 selection:text-white relative min-h-screen">
+
+  <!-- Top Scroll Progress Indicator (Section 6.9) -->
+  <div class="fixed top-0 left-0 right-0 h-[3px] z-50 bg-transparent pointer-events-none">
+    <div id="scroll-progress" class="h-full bg-blue-600 dark:bg-blue-500 transition-all duration-75" style="width: 0%;"></div>
+  </div>
+
+  <!-- Subtle Animated Technical Waveform Background Canvas (Section 6.13) -->
+  <canvas id="hero-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-60 dark:opacity-45"></canvas>
+  <div id="cursor-spotlight" class="fixed w-96 h-96 rounded-full pointer-events-none z-0 opacity-0 md:opacity-100 transition-opacity duration-500" style="background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%); transform: translate(-50%, -50%);"></div>
+
+  <!-- ==================== SECTION 1 — STICKY NAVIGATION ==================== -->
+  <header id="main-navbar" class="sticky top-0 z-40 transition-all duration-300" style="background: var(--nav); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--ln);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      <!-- Brand Identity -->
+      <a href="#beranda" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-display font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+          AL
+        </div>
+        <div>
+          <span class="font-display font-bold text-sm sm:text-base tracking-tight block leading-none">Andi Lutfi</span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">Fisika Instrumentasi · UPI</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links with Active Section Indicator -->
+      <nav aria-label="Navigasi Utama" class="hidden lg:flex items-center gap-1 p-1 rounded-full border" style="border-color: var(--ln); background: var(--bg2);">
+        <a href="#beranda" data-section="beranda" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white transition-all">Home</a>
+        <a href="#tentang" data-section="tentang" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-all">About</a>
+        <a href="#proyek" data-section="proyek" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-all">Projects</a>
+        <a href="#pengalaman" data-section="pengalaman" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-all">Experience</a>
+        <a href="#paten" data-section="paten" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-all">Achievements</a>
+        <a href="#keahlian" data-section="keahlian" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-all">Skills</a>
+        <a href="#kontak" data-section="kontak" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-all">Contact</a>
+      </nav>
+
+      <!-- Right Controls: CV Viewer, Download CV, Theme Switcher & Mobile Menu Toggle -->
+      <div class="flex items-center gap-2">
+        <span id="live-clock" class="hidden xl:inline-block text-[11px] font-mono text-slate-400 mr-1">WIB</span>
+
+        <button type="button" onclick="openCvModal()" class="btn-spectacular px-3.5 py-2 rounded-full text-xs font-medium border border-slate-200 dark:border-slate-700 hover:border-blue-500 text-slate-700 dark:text-slate-200 hidden sm:inline-flex items-center gap-1.5">
+          <span>Lihat CV Lengkap</span>
+        </button>
+
+        <button type="button" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Ganti Tema Terang atau Gelap" class="p-2.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:border-blue-500 transition-all">
+          <svg id="icon-sun" class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707-.707M6.343 17.657l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg id="icon-moon" class="w-4 h-4 block dark:hidden text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+
+        <button type="button" id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Buka Menu Navigasi Mobile" aria-expanded="false" class="lg:hidden p-2.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Responsive Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t px-4 py-4 space-y-1.5" style="border-color: var(--ln); background: var(--card);">
+      <a href="#beranda" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-600/10 hover:text-blue-600">Home</a>
+      <a href="#tentang" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-600/10 hover:text-blue-600">About</a>
+      <a href="#proyek" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-600/10 hover:text-blue-600">Projects</a>
+      <a href="#pengalaman" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-600/10 hover:text-blue-600">Experience</a>
+      <a href="#paten" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-600/10 hover:text-blue-600">Achievements &amp; IP</a>
+      <a href="#keahlian" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-600/10 hover:text-blue-600">Skills &amp; Education</a>
+      <a href="#kontak" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-600/10 hover:text-blue-600">Contact</a>
+      <div class="pt-2 flex gap-2">
+        <button type="button" onclick="closeMobileMenu(); downloadCvPdf();" class="flex-1 py-2.5 rounded-xl text-xs font-semibold bg-blue-600 text-white text-center">Download My CV (PDF)</button>
+        <button type="button" onclick="closeMobileMenu(); openCvModal();" class="flex-1 py-2.5 rounded-xl text-xs font-medium border border-slate-300 dark:border-slate-700 text-center">Pratinjau CV</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ==================== SECTION 2 — HERO / LANDING PAGE ==================== -->
+    <section id="beranda" class="relative overflow-hidden pt-10 pb-20 lg:py-24 bg-blueprint">
+      <!-- Preserved Concentric Signal Rings from Original HTML -->
+      <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <!-- Left Column: Typography, Positioning & CTAs -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold tracking-wider uppercase border border-blue-500/25 bg-blue-500/10 text-blue-600 dark:text-blue-400">
+              <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
+              <span>PHYSICS INSTRUMENTATION STUDENT | ENGINEERING &amp; IoT</span>
+            </div>
+
+            <div class="space-y-2">
+              <p class="text-sm sm:text-base font-semibold tracking-wide text-slate-500 dark:text-slate-400">
+                ANDI LUTFI · Universitas Pendidikan Indonesia
+              </p>
+              <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.06]">
+                <span class="hero-line"><em>Engineering ideas</em></span>
+                <span class="hero-line"><em>into <span class="text-blue-600 dark:text-blue-400">real-world</span></em></span>
+                <span class="hero-line"><em>systems.</em></span>
+              </h1>
+              <p class="text-sm sm:text-base font-medium text-blue-600/90 dark:text-blue-400/90 pt-1">
+                From Instrumentation to Intelligent Engineering Solutions.
+              </p>
+            </div>
+
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+              Saya merupakan mahasiswa Fisika Instrumentasi Universitas Pendidikan Indonesia yang berfokus pada pengembangan sistem instrumentasi, embedded systems, IoT, dan perangkat keras. Saya memiliki pengalaman dalam rekayasa perangkat, integrasi sistem, serta pengembangan instrumen untuk kebutuhan penelitian dan implementasi lapangan.
+            </p>
+
+            <!-- Quick Copyable Metadata Chips -->
+            <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+              <button type="button" onclick="copyToClipboard('Bandung, Jawa Barat', 'Lokasi disalin')" class="px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 hover:border-blue-500 transition-all">
+                📍 Bandung, Jawa Barat
+              </button>
+              <button type="button" onclick="copyToClipboard('4ndihandsome@gmail.com', 'Alamat email disalin')" class="px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 hover:border-blue-500 transition-all">
+                ✉️ 4ndihandsome@gmail.com
+              </button>
+              <button type="button" onclick="copyToClipboard('082299380532', 'Nomor telepon disalin')" class="px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 hover:border-blue-500 transition-all">
+                📞 082299380532
+              </button>
+            </div>
+
+            <!-- 3 Primary CTAs Required by Section 2 -->
+            <div class="flex flex-wrap items-center gap-3.5 pt-2">
+              <a href="#proyek" class="btn-spectacular px-6 py-3.5 rounded-full text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/25 inline-flex items-center gap-2">
+                <span>Explore My Projects</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+
+              <button type="button" onclick="downloadCvPdf()" class="btn-spectacular px-6 py-3.5 rounded-full text-sm font-semibold glass-card hover:border-blue-500 inline-flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Download My CV</span>
+              </button>
+
+              <a href="#kontak" class="btn-spectacular px-5 py-3.5 rounded-full text-sm font-medium text-blue-600 dark:text-blue-400 border border-blue-500/30 hover:bg-blue-600 hover:text-white inline-flex items-center gap-2">
+                <span>Contact Me</span>
+              </a>
+
+              <button type="button" onclick="scrollToSection('paten')" class="btn-spectacular px-4 py-3.5 rounded-full text-xs font-medium glass-card text-slate-700 dark:text-slate-300">
+                <span>📜 3 Paten Terdaftar</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Real Profile Photo + Subtle Engineering Framing & Telemetry Switcher -->
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto max-w-md">
+              <!-- Subtle Technical Coordinate Backdrop -->
+              <div class="absolute -inset-3 rounded-[36px] border border-dashed border-blue-500/25 pointer-events-none hidden sm:block"></div>
+
+              <div class="glass-card rounded-[32px] p-4 sm:p-5 relative overflow-hidden">
+                <!-- Top Technical Metadata Bar -->
+                <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 pb-3 mb-3 border-b" style="border-color: var(--ln);">
+                  <span>PROFILE // ANDI LUTFI</span>
+                  <span class="text-blue-600 dark:text-blue-400 font-semibold">UPI · BANDUNG</span>
+                </div>
+
+                <!-- Real Uploaded Portrait Photo of Andi Lutfi -->
+                <div class="relative rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-[4/5] group cursor-pointer" onclick="openLightbox('assets/images/profile-andi-lutfi.jpg', 'Andi Lutfi — Mahasiswa S1 Fisika Instrumentasi Universitas Pendidikan Indonesia')">
+                  <img
+                    src="assets/images/profile-andi-lutfi.jpg"
+                    alt="Potret Andi Lutfi — Mahasiswa Fisika Instrumentasi Universitas Pendidikan Indonesia"
+                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4 text-white flex items-end justify-between gap-2">
+                    <div>
+                      <div class="text-[11px] font-mono text-blue-300">S1 Fisika Instrumentasi</div>
+                      <div class="font-display font-bold text-base">Andi Lutfi</div>
+                      <div class="text-xs text-slate-200">Hardware R&amp;D · Embedded &amp; IoT</div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-white/20 backdrop-blur-md">Perbesar ⤢</span>
+                  </div>
+                </div>
+
+                <!-- Interactive Quick Project Telemetry Selector inside Hero Card -->
+                <div class="mt-4 pt-3 border-t" style="border-color: var(--ln);">
+                  <div class="grid grid-cols-3 gap-1 p-1 rounded-xl bg-slate-100 dark:bg-slate-900 text-[11px] font-medium mb-3">
+                    <button type="button" onclick="switchHeroTelemetry(0)" id="hero-tab-0" class="hero-tab-btn py-1.5 px-2 rounded-lg font-semibold bg-blue-600 text-white transition-all">Smart Farming</button>
+                    <button type="button" onclick="switchHeroTelemetry(1)" id="hero-tab-1" class="hero-tab-btn py-1.5 px-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-all">Dip-Coater IoT</button>
+                    <button type="button" onclick="switchHeroTelemetry(2)" id="hero-tab-2" class="hero-tab-btn py-1.5 px-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-all">QA PT Pindad</button>
+                  </div>
+
+                  <div id="hero-console-body" class="text-xs">
+                    <!-- Populated via switchHeroTelemetry() -->
+                  </div>
+
+                  <div class="mt-3 pt-2.5 border-t flex items-center justify-between text-[11px]" style="border-color: var(--ln);">
+                    <span id="hero-console-status" class="font-mono text-slate-500 dark:text-slate-400">● LoRa 10 km Off-Grid</span>
+                    <button type="button" onclick="openHeroActiveBlueprint()" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">Buka Blueprint Sistem →</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 3 — ABOUT ME ==================== -->
+    <section id="tentang" class="py-20 lg:py-28 border-t" style="border-color: var(--ln);">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-5 space-y-3 rv">
+            <div class="text-xs font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">01 // ABOUT ME</div>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1]">
+              Building Things Beyond The Theory.
+            </h2>
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+              Dari prinsip fisika instrumentasi di laboratorium menuju perangkat keras yang bekerja nyata di lapangan.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 space-y-5 text-base text-slate-600 dark:text-slate-300 leading-relaxed rv">
+            <p>
+              Sebagai mahasiswa <strong class="text-slate-900 dark:text-white font-semibold">S1 Fisika Instrumentasi di Universitas Pendidikan Indonesia (Bandung)</strong>, saya memandang ilmu fisika bukan sekadar rumusan teoretis di atas kertas, melainkan fondasi untuk menciptakan instrumen ukur dan sistem otomatis yang dapat diandalkan.
+            </p>
+            <p>
+              Fokus rekayasa saya mencakup perancangan perangkat keras (<em class="not-italic font-medium text-slate-900 dark:text-white">hardware development</em>), pemrograman sistem tertanam (<em class="not-italic font-medium text-slate-900 dark:text-white">ESP32 / ESP32-S3</em>), integrasi jaringan sensor <em class="not-italic font-medium text-slate-900 dark:text-white">Internet of Things (IoT)</em> jarak jauh, desain mekanika presisi 3D, hingga penjaminan mutu &amp; kalibrasi berstandar industri. Baik saat merancang mesin <strong class="text-slate-900 dark:text-white">Dip-Coater Otomatis</strong> untuk riset sel surya film tipis TiO₂ maupun membangun jaringan <strong class="text-slate-900 dark:text-white">Smart Farming LoRa 10 km</strong> tanpa internet untuk petani kopi, saya terlibat langsung dari perancangan skematik dan perakitan mekanik hingga pengujian lapangan.
+            </p>
+
+            <!-- 9 Core Engineering Focus Areas (Section 3 Positioning) -->
+            <div class="pt-2">
+              <div class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Bidang Keahlian &amp; Fokus Rekayasa:</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">Instrumentation Engineering</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Embedded Systems</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Internet of Things (IoT)</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Hardware Development</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Mechanical Design &amp; Engineering</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Sensor Instrumentation</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Data Acquisition &amp; Processing</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Quality Assurance &amp; Calibration</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Applied Research &amp; Development</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Statistics Row (Preserved from Original HTML + Master Prompt Section 3) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+          <div class="stat glass-card rounded-3xl p-6 rv">
+            <div class="flex items-baseline gap-1 font-display text-4xl sm:text-5xl font-extrabold text-blue-600 dark:text-blue-400">
+              <b data-n="10">10</b>
+              <span class="text-2xl font-bold">KM</span>
+            </div>
+            <span class="block text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2">Jangkauan komunikasi LoRa tanpa internet pada proyek Smart Farming.</span>
+          </div>
+
+          <div class="stat glass-card rounded-3xl p-6 rv">
+            <div class="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">
+              <b data-n="3">3</b>
+            </div>
+            <span class="block text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2">Invensi/paten yang dicantumkan sebagai inventor dalam CV.</span>
+          </div>
+
+          <div class="stat glass-card rounded-3xl p-6 rv">
+            <div class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight py-1">
+              Smart Farming
+            </div>
+            <span class="block text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2">Sistem pemantauan lahan multi-node yang berhasil dihilirisasi ke petani kopi.</span>
+          </div>
+
+          <div class="stat glass-card rounded-3xl p-6 rv">
+            <div class="font-display text-2xl sm:text-3xl font-extrabold text-blue-600 dark:text-blue-400 leading-tight py-1">
+              Tempo.co
+            </div>
+            <span class="block text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2">Media nasional yang meliput dampak hilirisasi proyek Smart Farming.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 4 — FEATURED PROJECTS ==================== -->
+    <section id="proyek" class="py-20 lg:py-28 border-t" style="background-color: var(--bg2); border-color: var(--ln);">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="space-y-2 rv">
+            <div class="text-xs font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">02 // FEATURED PROJECTS</div>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Proyek Rekayasa Unggulan</h2>
+            <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl">
+              Sistem perangkat keras, instrumentasi, dan IoT yang dirancang dari arsitektur mekanik dan elektronik hingga algoritma pemrosesan datanya.
+            </p>
+          </div>
+
+          <!-- Filter Buttons -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" onclick="filterProjects('all')" id="filter-all" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-blue-600 text-white transition-all">Semua (3)</button>
+            <button type="button" onclick="filterProjects('iot')" id="filter-iot" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-medium glass-card">Smart Farming &amp; IoT</button>
+            <button type="button" onclick="filterProjects('automation')" id="filter-automation" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-medium glass-card">Mesin Dip-Coater</button>
+            <button type="button" onclick="filterProjects('qa')" id="filter-qa" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-medium glass-card">QA &amp; Kalibrasi (PT Pindad)</button>
+          </div>
+        </div>
+
+        <!-- Featured Project A & B Showcase (Apple Split-Card Presentation from Original HTML + Real Hardware Photo) -->
+        <div class="space-y-10">
+
+          <!-- FEATURED PROJECT A: SMART FARMING WITHOUT INTERNET -->
+          <article class="glass-card rounded-[32px] overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch rv">
+            <!-- Left Visual Area: Preserved Animated LoRa SVG from Original HTML + Interactive Architecture Preview -->
+            <div class="lg:col-span-5 p-8 flex flex-col justify-between items-center relative" style="background-color: var(--bg);">
+              <div class="w-full flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <span>PROJECT A // MULTI-NODE LORA 10 KM</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 font-semibold">Hilirisasi &amp; Tempo.co</span>
+              </div>
+
+              <!-- Original Animated LoRa Network SVG from Andi Lutfi – Portofolio.html -->
+              <svg viewBox="0 0 300 240" fill="none" stroke="currentColor" aria-label="Ilustrasi jaringan sensor tanah LoRa 10 km" class="w-full max-w-[320px] h-auto my-4">
+                <g class="text-slate-400 dark:text-slate-500" stroke-width="1.6">
+                  <path d="M10 205h280"/>
+                  <path d="M45 205v-34M130 205v-34M245 205v-34" stroke-linecap="round"/>
+                  <rect x="31" y="153" width="28" height="18" rx="4" fill="var(--card)"/>
+                  <rect x="116" y="153" width="28" height="18" rx="4" fill="var(--card)"/>
+                  <rect x="231" y="153" width="28" height="18" rx="4" fill="var(--card)"/>
+                  <text x="26" y="222" font-size="9" fill="currentColor" stroke="none" font-family="JetBrains Mono">Node #1 (RS-485)</text>
+                  <text x="112" y="222" font-size="9" fill="currentColor" stroke="none" font-family="JetBrains Mono">Node #2 (ESP32)</text>
+                  <text x="218" y="222" font-size="9" fill="currentColor" stroke="none" font-family="JetBrains Mono">Node #N (10 km)</text>
+                </g>
+                <g class="text-blue-600 dark:text-blue-400" stroke-width="1.6">
+                  <circle class="pulse" cx="150" cy="56" r="72"/>
+                  <circle class="pulse" cx="150" cy="56" r="72" style="animation-delay:1.5s"/>
+                  <path d="M150 56v26M150 82l-105 71M150 82l-20 71M150 82l95 71" stroke-dasharray="3 5" opacity="0.7"/>
+                  <circle cx="150" cy="56" r="9" fill="currentColor" stroke="none"/>
+                  <text x="92" y="34" font-size="9.5" fill="currentColor" stroke="none" font-family="JetBrains Mono" font-weight="600">LoRa Gateway → MQTT</text>
+                </g>
+              </svg>
+
+              <div class="w-full flex items-center justify-between text-xs pt-3 border-t" style="border-color: var(--ln);">
+                <span class="text-slate-500">6 Slot Dokumentasi &amp; Diagram</span>
+                <button type="button" onclick="openCaseStudyModal('smart-farming')" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">Buka Galeri &amp; Studi Kasus →</button>
+              </div>
+            </div>
+
+            <!-- Right Narrative & Technical Details -->
+            <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between space-y-6">
+              <div class="space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400">IoT Engineering | Embedded Systems | Agricultural Instrumentation</span>
+                  <span class="text-xs font-mono text-slate-500">Juni 2025 – November 2025</span>
+                </div>
+
+                <h3 class="font-display text-2xl sm:text-3xl font-bold tracking-tight">
+                  Smart Farming Without Internet — Pemantauan Tanah Multi-Node Jarak Jauh
+                </h3>
+
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Pengembangan sistem pemantauan kondisi tanah multi-node menggunakan ESP32, komunikasi RS-485, dan LoRa untuk operasional jarak jauh (10 km) tanpa ketergantungan terhadap internet, dilengkapi IoT backend dan inferensi logika fuzzy real-time.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs sm:text-sm">
+                  <div class="p-4 rounded-2xl border" style="background-color: var(--bg); border-color: var(--ln);">
+                    <div class="font-semibold text-slate-900 dark:text-white mb-1.5">Kontribusi Utama (Sesuai CV):</div>
+                    <ul class="space-y-1 text-slate-600 dark:text-slate-300 list-disc list-inside text-xs leading-relaxed">
+                      <li>Memimpin rekayasa arsitektur pemantauan tanah multi-node (ESP32, RS-485, LoRa 10 km).</li>
+                      <li>Membangun backend IoT menggunakan MQTT, Node-RED, dan InfluxDB.</li>
+                      <li>Mengimplementasikan logika fuzzy &amp; fungsi trapezoid berbobot untuk skor lahan real-time.</li>
+                    </ul>
+                  </div>
+                  <div class="p-4 rounded-2xl border" style="background-color: var(--bg); border-color: var(--ln);">
+                    <div class="font-semibold text-slate-900 dark:text-white mb-1.5">Dampak &amp; Validasi:</div>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Sistem berhasil dihilirisasi dan terbukti secara langsung meningkatkan kualitas panen kopi petani di lapangan. Tervalidasi melalui liputan media nasional <strong>Tempo.co</strong>.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">ESP32</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Sensor Tanah</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">RS-485</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">LoRa (10 km)</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">MQTT</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Node-RED</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">InfluxDB</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Weighted Trapezoidal Fuzzy Logic</span>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t flex flex-wrap items-center gap-3" style="border-color: var(--ln);">
+                <button type="button" onclick="openCaseStudyModal('smart-farming')" class="btn-spectacular px-5 py-2.5 rounded-full text-xs font-semibold bg-blue-600 text-white">
+                  📖 Buka Case Study Lengkap (12 Bagian &amp; Galeri)
+                </button>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- FEATURED PROJECT B: AUTOMATED DIP-COATING MACHINE (WITH REAL UPLOADED PHOTO) -->
+          <article class="glass-card rounded-[32px] overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch rv">
+            <!-- Left Narrative & Technical Details (Reversed Order on Desktop like Original HTML .proj.r) -->
+            <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between space-y-6 order-2 lg:order-1">
+              <div class="space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400">Hardware R&amp;D | Instrumentation | Precision Mechanical Engineering</span>
+                  <span class="text-xs font-mono text-slate-500">Mei 2026 – September 2026</span>
+                </div>
+
+                <h3 class="font-display text-2xl sm:text-3xl font-bold tracking-tight">
+                  Automated Dip-Coating Machine — Instrumen Pelapis Celup Otomatis Berbasis IoT
+                </h3>
+
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Dipercaya oleh Guru Besar Universitas Pendidikan Indonesia untuk merekayasa mesin <em>dip-coating</em> otomatis terintegrasi IoT guna menunjang kebutuhan riset material tingkat lanjut dan deposisi film tipis.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs sm:text-sm">
+                  <div class="p-4 rounded-2xl border" style="background-color: var(--bg); border-color: var(--ln);">
+                    <div class="font-semibold text-slate-900 dark:text-white mb-1.5">Kontribusi Rekayasa:</div>
+                    <ul class="space-y-1 text-slate-600 dark:text-slate-300 list-disc list-inside text-xs leading-relaxed">
+                      <li>Merancang mekanika presisi dan enklosur ruang isolasi termal.</li>
+                      <li>Mengembangkan kontrol aktuator berbasis perhitungan <em>step pulse</em> (TMC2209).</li>
+                      <li>Mengimplementasikan <em>safety offset</em> menggunakan sensor optik &amp; UI layar sentuh kapasitif.</li>
+                    </ul>
+                  </div>
+                  <div class="p-4 rounded-2xl border border-blue-500/20 bg-blue-500/5">
+                    <div class="font-semibold text-blue-600 dark:text-blue-400 mb-1.5">Keterkaitan Riset Akademik:</div>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Instrumen hasil rancangan dan rekayasa mandiri ini digunakan secara eksklusif pada penelitian: <strong>“Karakterisasi film tipis TiO₂ untuk aplikasi sel surya.”</strong>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">ESP32-S3</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Stepper Motor</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">TMC2209</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Optical Sensor (Safety Offset)</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">FreeCAD</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">3D Printing</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">IoT</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Embedded Control</span>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t flex flex-wrap items-center gap-3" style="border-color: var(--ln);">
+                <button type="button" onclick="openCaseStudyModal('dip-coater')" class="btn-spectacular px-5 py-2.5 rounded-full text-xs font-semibold bg-blue-600 text-white">
+                  📖 Buka Case Study Lengkap (12 Bagian &amp; Foto Asli)
+                </button>
+
+              </div>
+            </div>
+
+            <!-- Right Visual Area: Real Uploaded Hardware Photo of Dip-Coater + Animated SVG Toggle -->
+            <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between items-center relative order-1 lg:order-2" style="background-color: var(--bg);">
+              <div class="w-full flex items-center justify-between text-[11px] font-mono text-slate-400 mb-3">
+                <span>PROJECT B // HARDWARE ASLI DI LAB UPI</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold">Dokumentasi Asli</span>
+              </div>
+
+              <!-- Real Photo of Automated Dip-Coating Machine (Clickable Lightbox) -->
+              <div class="relative w-full rounded-2xl overflow-hidden border aspect-[4/5] max-h-[340px] group cursor-pointer" style="border-color: var(--ln);" onclick="openLightbox('assets/images/dip-coater-machine.jpg', 'Mesin Dip-Coater Otomatis Hasil Rancangan & Rekayasa Mandiri di Laboratorium UPI — Ruang Isolasi Termal Akrilik, Mekanika Linear & Antarmuka Layar Sentuh Kapasitif')">
+                <img
+                  src="assets/images/dip-coater-machine.jpg"
+                  alt="Foto Asli Mesin Dip-Coater Otomatis Rancangan Andi Lutfi di Laboratorium UPI"
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3 text-white flex items-center justify-between text-xs">
+                  <span class="font-medium">Foto Fisik Mesin Dip-Coater Otomatis</span>
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-white/20 backdrop-blur-md">Lightbox ⤢</span>
+                </div>
+              </div>
+
+              <div class="w-full flex items-center justify-between text-xs pt-3 mt-3 border-t" style="border-color: var(--ln);">
+                <span class="text-slate-500">Dilengkapi Skematik &amp; 6 Slot Galeri</span>
+                <button type="button" onclick="openCaseStudyModal('dip-coater')" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">Lihat Detail Mekanik →</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Search & Interactive Filter Grid for All 3 CV Projects (Quick Comparison & Architecture Cards) -->
+        <div class="pt-6 space-y-6">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <div class="relative flex-1 max-w-md">
+              <input type="text" id="project-search-input" oninput="handleProjectSearch(this.value)" placeholder="Filter cepat kartu ringkasan proyek (ESP32, LoRa, TMC2209, Kalibrasi, Pindad)..." class="w-full pl-10 pr-4 py-2.5 rounded-full text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:border-blue-500 focus:outline-none" />
+              <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <div class="text-xs text-slate-500 dark:text-slate-400">
+              Klik <strong>Blueprint Detail</strong> atau <strong>Case Study</strong> pada kartu mana pun untuk membuka dokumentasi 12 bagian.
+            </div>
+          </div>
+
+          <div id="projects-container" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Populated by renderProjects() -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5 — PROFESSIONAL EXPERIENCE & INTERACTIVE LAB ==================== -->
+    <section id="pengalaman" class="py-20 lg:py-28 border-t" style="border-color: var(--ln);">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <!-- Left 4 Columns: Section Header & Calibration Gauge Illustration from Original HTML -->
+          <div class="lg:col-span-4 space-y-6 rv">
+            <div class="text-xs font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">03 // PROFESSIONAL EXPERIENCE</div>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">
+              Linimasa Pengalaman Riset &amp; Industri
+            </h2>
+            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              Rekam jejak kontribusi profesional pada hilirisasi riset perguruan tinggi di <strong>Universitas Pendidikan Indonesia</strong> serta penjaminan mutu &amp; kalibrasi presisi di industri pertahanan nasional <strong>PT Pindad (Persero)</strong>.
+            </p>
+
+            <!-- Preserved Animated Calibration Needle SVG Card from Andi Lutfi – Portofolio.html -->
+            <div class="glass-card rounded-3xl p-6 space-y-3">
+              <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+                <span>PRECISION QA &amp; CALIBRATION</span>
+                <span class="text-blue-600 dark:text-blue-400">PT Pindad (Persero)</span>
+              </div>
+              <svg viewBox="0 0 200 135" fill="none" stroke="currentColor" aria-label="Ilustrasi alat ukur kalibrasi presisi" class="w-full max-w-[240px] mx-auto h-auto">
+                <g class="text-slate-400 dark:text-slate-500" stroke-width="1.5">
+                  <path d="M20 110a80 80 0 0 1 160 0" stroke-linecap="round"/>
+                  <path d="M33 110a67 67 0 0 1 134 0" opacity="0.4"/>
+                  <path d="M100 28v14M43 53l10 10M157 53l-10 10M24 100h14M176 100h-14" stroke-linecap="round"/>
+                </g>
+                <g class="text-blue-600 dark:text-blue-400">
+                  <g class="needle"><path d="M100 110V42" stroke-width="3" stroke-linecap="round"/></g>
+                  <circle cx="100" cy="110" r="7" fill="currentColor" stroke="none"/>
+                </g>
+              </svg>
+              <p class="text-xs text-center text-slate-500 dark:text-slate-400">
+                Kalibrasi instrumen laboratorium material &amp; inspeksi lini produksi utama.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right 8 Columns: Scroll-Animated Vertical Timeline (#tl & #fill from Original HTML) -->
+          <div class="lg:col-span-8">
+            <div class="tl" id="tl">
+              <div class="fill" id="fill"></div>
+
+              <!-- PENGALAMAN 1: R&D Hardware Developer (Mei 2026 – Sep 2026) -->
+              <div class="job rv">
+                <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-3">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400">Mei 2026 – September 2026</span>
+                    <span class="text-xs font-mono text-slate-400">Bandung, Jawa Barat</span>
+                  </div>
+                  <h3 class="font-display text-xl sm:text-2xl font-bold">R&amp;D Hardware Developer</h3>
+                  <p class="text-sm font-semibold text-blue-600 dark:text-blue-400">Proyek Mesin Dip-Coater Otomatis — Universitas Pendidikan Indonesia</p>
+                  <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
+                    <li>Dipercaya oleh Guru Besar universitas untuk merekayasa mesin <em>dip-coating</em> otomatis terintegrasi IoT guna menunjang kebutuhan riset material tingkat lanjut.</li>
+                    <li>Merancang mekanika presisi dan kontrol aktuator berbasis perhitungan <em>step pulse</em> dengan <em>safety offset</em> sensor optik, serta ruang isolasi termal berantarmuka layar sentuh kapasitif.</li>
+                  </ul>
+                  <div class="pt-2 flex flex-wrap gap-2">
+                    <button type="button" onclick="openCaseStudyModal('dip-coater')" class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline">Lihat Studi Kasus &amp; Foto Mesin →</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PENGALAMAN 2: Quality Assurance & Calibration Intern (Mar 2026 – Mei 2026) -->
+              <div class="job rv">
+                <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-3">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400">Maret 2026 – Mei 2026</span>
+                    <span class="text-xs font-mono text-slate-400">Bandung, Jawa Barat</span>
+                  </div>
+                  <h3 class="font-display text-xl sm:text-2xl font-bold">Quality Assurance &amp; Calibration Intern</h3>
+                  <p class="text-sm font-semibold text-blue-600 dark:text-blue-400">PT Pindad (Persero)</p>
+                  <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
+                    <li>Melaksanakan prosedur <em>quality assurance</em> (QA) dan kalibrasi instrumen presisi di laboratorium pengujian material.</li>
+                    <li>Melakukan inspeksi kualitas dan pemantauan parameter secara langsung di fasilitas lini produksi utama (<em>on-site</em>) guna memastikan seluruh proses manufaktur mematuhi standar toleransi ketat industri pertahanan.</li>
+                  </ul>
+                  <div class="pt-2 flex flex-wrap gap-2">
+                    <button type="button" onclick="openCaseStudyModal('pindad-qa')" class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline">Lihat Detail Pengalaman QA &amp; Kalibrasi →</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PENGALAMAN 3: IoT & Hardware Engineering Researcher (Jun 2025 – Nov 2025) -->
+              <div class="job rv">
+                <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-3">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400">Juni 2025 – November 2025</span>
+                    <span class="text-xs font-mono text-slate-400">Bandung, Jawa Barat</span>
+                  </div>
+                  <h3 class="font-display text-xl sm:text-2xl font-bold">IoT &amp; Hardware Engineering Researcher</h3>
+                  <p class="text-sm font-semibold text-blue-600 dark:text-blue-400">Proyek Smart Farming — Universitas Pendidikan Indonesia</p>
+                  <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
+                    <li>Memimpin rekayasa arsitektur pemantauan tanah <em>multi-node</em>, mengintegrasikan ESP32, komunikasi RS-485, dan modul LoRa untuk operasional jarak jauh (10 km) tanpa ketergantungan internet.</li>
+                    <li>Membangun <em>IoT backend</em> (MQTT, Node-RED, InfluxDB) dan mengimplementasikan algoritma logika <em>fuzzy</em> serta fungsi <em>trapezoid</em> berbobot untuk menghasilkan skor lahan secara <em>real-time</em>.</li>
+                  </ul>
+                  <div class="p-4 rounded-2xl border border-blue-500/20 bg-blue-500/5 text-xs sm:text-sm text-slate-700 dark:text-slate-200 mt-2">
+                    <strong>Dampak Hilirisasi:</strong> Sistem berhasil dihilirisasi dan terbukti secara langsung meningkatkan kualitas panen kopi petani. Tervalidasi melalui liputan media nasional <strong>Tempo.co</strong>.
+                  </div>
+                  <div class="pt-2 flex flex-wrap gap-2">
+                    <button type="button" onclick="openCaseStudyModal('smart-farming')" class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline">Lihat Studi Kasus Smart Farming →</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 6 — ACHIEVEMENTS & INTELLECTUAL PROPERTY ==================== -->
+    <section id="paten" class="py-20 lg:py-28 border-t" style="background-color: var(--bg2); border-color: var(--ln);">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="space-y-2 rv">
+            <div class="text-xs font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">04 // ACHIEVEMENTS &amp; INTELLECTUAL PROPERTY</div>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+              Innovation &amp; Intellectual Property.
+            </h2>
+            <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl">
+              Tiga invensi/paten yang dicantumkan sebagai inventor dalam CV, lahir dari pengembangan instrumen pemantauan tanah multi-lahan dan mesin pelapis celup otomatis di Universitas Pendidikan Indonesia.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" onclick="filterPatents('all')" id="pat-filter-all" class="pat-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-blue-600 text-white">Semua Paten (3)</button>
+            <button type="button" onclick="filterPatents('soil')" id="pat-filter-soil" class="pat-filter-btn px-4 py-2 rounded-full text-xs font-medium glass-card">Multimeter Tanah IoT (2)</button>
+            <button type="button" onclick="filterPatents('dipcoater')" id="pat-filter-dipcoater" class="pat-filter-btn px-4 py-2 rounded-full text-xs font-medium glass-card">Pelapis Celup Otomatis (1)</button>
+          </div>
+        </div>
+
+        <div id="patents-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Populated by renderPatents() -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 7 — TECHNICAL SKILLS & SECTION 8 — EDUCATION & RESEARCH ==================== -->
+    <section id="keahlian" class="py-20 lg:py-28 border-t" style="border-color: var(--ln);">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+        <!-- SECTION 7: TECHNICAL SKILLS -->
+        <div class="space-y-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="space-y-2 rv">
+              <div class="text-xs font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">05 // TECHNICAL SKILLS</div>
+              <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Kompetensi Rekayasa Teknis</h2>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl">
+                Dikelompokkan berdasarkan empat pilar keahlian pada CV, lengkap dengan implementasi nyata pada setiap proyek tanpa klaim persentase subjektif.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <button type="button" onclick="selectSkillCategory('all')" id="skill-cat-all" class="skill-cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-blue-600 text-white">Semua Domain (4)</button>
+              <button type="button" onclick="selectSkillCategory('embedded')" id="skill-cat-embedded" class="skill-cat-btn px-4 py-2 rounded-full text-xs font-medium glass-card">Embedded &amp; IoT</button>
+              <button type="button" onclick="selectSkillCategory('software')" id="skill-cat-software" class="skill-cat-btn px-4 py-2 rounded-full text-xs font-medium glass-card">Perangkat Lunak &amp; Data</button>
+              <button type="button" onclick="selectSkillCategory('mechanical')" id="skill-cat-mechanical" class="skill-cat-btn px-4 py-2 rounded-full text-xs font-medium glass-card">Desain Mekanik 3D</button>
+              <button type="button" onclick="selectSkillCategory('qa')" id="skill-cat-qa" class="skill-cat-btn px-4 py-2 rounded-full text-xs font-medium glass-card">Penjaminan Mutu (QA)</button>
+            </div>
+          </div>
+
+          <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Populated by renderSkills() -->
+          </div>
+        </div>
+
+        <!-- SECTION 8: EDUCATION & RESEARCH -->
+        <div id="pendidikan" class="pt-12 border-t space-y-8" style="border-color: var(--ln);">
+          <div class="space-y-2 rv">
+            <div class="text-xs font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">06 // EDUCATION &amp; RESEARCH</div>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Pendidikan &amp; Fokus Penelitian Akademik</h2>
+          </div>
+
+          <div class="glass-card rounded-[32px] p-7 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rv">
+            <div class="lg:col-span-5 space-y-3 border-b lg:border-b-0 lg:border-r pb-6 lg:pb-0 lg:pr-8" style="border-color: var(--ln);">
+              <span class="inline-block px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400">
+                September 2023 – Sekarang
+              </span>
+              <h3 class="font-display text-2xl sm:text-3xl font-bold">Universitas Pendidikan Indonesia</h3>
+              <p class="text-base font-semibold text-blue-600 dark:text-blue-400">S1 Fisika Instrumentasi</p>
+              <p class="text-xs font-mono text-slate-500">Bandung, Jawa Barat</p>
+
+              <div class="pt-3">
+                <div class="p-4 rounded-2xl border border-amber-500/25 bg-amber-500/5">
+                  <div class="text-xs font-mono font-bold uppercase text-amber-600 dark:text-amber-400">Pencapaian Akademik</div>
+                  <p class="text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 mt-1">
+                    Kandidat seleksi <strong>Mahasiswa Berprestasi (Mawapres)</strong> tingkat universitas.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-5">
+              <div class="space-y-2">
+                <div class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Fokus Penelitian Utama (Sesuai CV)</div>
+                <blockquote class="text-base sm:text-lg font-medium text-slate-800 dark:text-slate-100 leading-relaxed border-l-4 border-blue-600 pl-4 py-1">
+                  “Karakterisasi film tipis TiO₂ untuk aplikasi sel surya yang diproduksi dan diuji secara eksklusif menggunakan instrumen Dip-Coater hasil rancangan dan rekayasa mandiri.”
+                </blockquote>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Integrasi langsung antara penelitian material semikonduktor ($\text{TiO}_2$) dan rekayasa instrumen laboratorium: seluruh sampel lapisan tipis dideposisikan menggunakan mesin <em>Automated Dip-Coater</em> yang dirancang secara mandiri dari mekanika, kontrol <em>step-pulse</em>, hingga ruang isolasi termalnya.
+              </p>
+
+              <div class="flex flex-wrap items-center gap-3 pt-1">
+                <button type="button" onclick="openCaseStudyModal('dip-coater')" class="px-4 py-2 rounded-full text-xs font-semibold bg-blue-600 text-white">
+                  Lihat Instrumen Riset Dip-Coater →
+                </button>
+                <button type="button" onclick="openCvModal()" class="px-4 py-2 rounded-full text-xs font-medium border border-slate-300 dark:border-slate-700 hover:border-blue-500">
+                  Buka Transkrip CV →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 9 — CONTACT & COLLABORATION ==================== -->
+    <section id="kontak" class="py-20 lg:py-28 border-t" style="background-color: var(--bg2); border-color: var(--ln);">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass-card rounded-[32px] p-7 sm:p-12">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+            <!-- Left 5 Columns: Contact Info & Direct Channels -->
+            <div class="lg:col-span-5 space-y-6 rv">
+              <div class="space-y-2">
+                <div class="text-xs font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">07 // CONTACT &amp; COLLABORATION</div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">
+                  Let's Build Something Meaningful.
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Terbuka untuk kesempatan riset, kolaborasi akademik, pengembangan perangkat keras, instrumentasi, IoT, dan proyek rekayasa.
+                </p>
+              </div>
+
+              <div class="space-y-3">
+                <div class="p-4 rounded-2xl border flex items-center justify-between gap-3" style="background-color: var(--bg); border-color: var(--ln);">
+                  <div>
+                    <div class="text-[11px] font-mono text-slate-400 uppercase">Email Resmi</div>
+                    <a href="mailto:4ndihandsome@gmail.com" class="text-sm font-semibold hover:text-blue-600 transition-colors">4ndihandsome@gmail.com</a>
+                  </div>
+                  <button type="button" onclick="copyToClipboard('4ndihandsome@gmail.com', 'Email 4ndihandsome@gmail.com berhasil disalin!')" class="px-3 py-1.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-600 dark:text-blue-400">Salin</button>
+                </div>
+
+                <button type="button" onclick="copyToClipboard('082299380532', 'Nomor telepon 082299380532 berhasil disalin!')" class="w-full p-4 rounded-2xl border flex items-center justify-between gap-3 text-left hover:border-blue-500 transition-all" style="background-color: var(--bg); border-color: var(--ln);">
+                  <div>
+                    <div class="text-[11px] font-mono text-slate-400 uppercase">Telepon &amp; WhatsApp</div>
+                    <div class="text-sm font-semibold mt-0.5">082299380532</div>
+                  </div>
+                  <span class="px-3 py-1.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-600 dark:text-blue-400">Salin</span>
+                </button>
+
+                <div class="p-4 rounded-2xl border flex items-center justify-between gap-3" style="background-color: var(--bg); border-color: var(--ln);">
+                  <div>
+                    <div class="text-[11px] font-mono text-slate-400 uppercase">LinkedIn &amp; Lokasi (Sesuai CV)</div>
+                    <div class="text-sm font-semibold">andi lutfi · Bandung, Jawa Barat</div>
+                  </div>
+                  <button type="button" onclick="copyToClipboard('andi lutfi', 'Profil LinkedIn andi lutfi berhasil disalin!')" class="px-3 py-1.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-600 dark:text-blue-400">Salin</button>
+                </div>
+              </div>
+
+              <!-- Direct CTA Links -->
+              <div class="flex flex-wrap gap-3 pt-1">
+                <a href="mailto:4ndihandsome@gmail.com" class="btn-spectacular px-5 py-2.5 rounded-full text-xs font-semibold bg-blue-600 text-white">
+                  ✉️ Kirim Email Langsung
+                </a>
+                <a href="https://wa.me/6282299380532" target="_blank" rel="noopener noreferrer" class="btn-spectacular px-5 py-2.5 rounded-full text-xs font-semibold border border-blue-500/30 text-blue-600 dark:text-blue-400">
+                  💬 Hubungi via WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- Right 7 Columns: Interactive Collaboration Message Composer -->
+            <div class="lg:col-span-7 p-6 sm:p-8 rounded-3xl border space-y-4 rv" style="background-color: var(--bg); border-color: var(--ln);">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-lg font-bold">Penyusun Pesan Kolaborasi &amp; Diskusi</h3>
+                <span class="text-xs font-mono text-blue-600 dark:text-blue-400">Siap Kirim</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="msg-sender-name" class="block text-xs text-slate-500 mb-1.5">Nama Anda / Institusi</label>
+                  <input id="msg-sender-name" type="text" oninput="updateComposedMessage()" placeholder="Contoh: Tim Riset / Divisi Engineering" class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:border-blue-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label for="msg-topic-select" class="block text-xs text-slate-500 mb-1.5">Topik Kolaborasi</label>
+                  <select id="msg-topic-select" onchange="updateComposedMessage()" class="w-full px-3.5 py-2.5 rounded-xl text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:border-blue-500 focus:outline-none">
+                    <option value="iot">Rekayasa Sistem IoT &amp; Smart Farming LoRa</option>
+                    <option value="dipcoater">Otomasi Instrumen Lab &amp; Mesin Dip-Coater</option>
+                    <option value="qa">Penjaminan Mutu (QA) &amp; Kalibrasi Presisi</option>
+                    <option value="recruitment">Kolaborasi Riset / Peluang Karier Engineering</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="msg-preview-box" class="block text-xs text-slate-500 mb-1.5">Draf Pesan (Dapat Diedit)</label>
+                <textarea id="msg-preview-box" rows="4" class="w-full p-3.5 rounded-2xl text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:border-blue-500 focus:outline-none leading-relaxed"></textarea>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3 pt-1">
+                <button type="button" onclick="sendComposedEmail()" class="btn-spectacular px-5 py-2.5 rounded-full text-xs font-semibold bg-blue-600 text-white">
+                  ✉️ Buka Aplikasi Email &amp; Kirim
+                </button>
+                <button type="button" onclick="copyComposedMessage()" class="btn-spectacular px-4 py-2.5 rounded-full text-xs font-medium border border-slate-300 dark:border-slate-700">
+                  📋 Salin Teks Pesan
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== SECTION 10 — FOOTER ==================== -->
+  <footer class="relative z-10 border-t py-12 px-4" style="background-color: var(--bg); border-color: var(--ln);">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b" style="border-color: var(--ln);">
+      <div class="md:col-span-5 space-y-2">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center font-display font-bold text-xs">AL</div>
+          <span class="font-display font-bold text-base">Andi Lutfi</span>
+        </div>
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          Instrumentation &amp; Engineering Portfolio · S1 Fisika Instrumentasi, Universitas Pendidikan Indonesia.
+        </p>
+        <p class="text-xs font-mono text-slate-400">Bandung, Indonesia</p>
+      </div>
+
+      <div class="md:col-span-4 space-y-2 text-xs">
+        <div class="font-semibold uppercase tracking-wider text-slate-400">Navigasi Cepat</div>
+        <div class="grid grid-cols-2 gap-1.5 text-slate-600 dark:text-slate-300">
+          <a href="#beranda" class="hover:text-blue-600">Home</a>
+          <a href="#tentang" class="hover:text-blue-600">About</a>
+          <a href="#proyek" class="hover:text-blue-600">Projects</a>
+          <a href="#pengalaman" class="hover:text-blue-600">Experience</a>
+          <a href="#paten" class="hover:text-blue-600">Achievements</a>
+          <a href="#keahlian" class="hover:text-blue-600">Skills &amp; Education</a>
+        </div>
+      </div>
+
+      <div class="md:col-span-3 space-y-2 text-xs">
+        <div class="font-semibold uppercase tracking-wider text-slate-400">Kontak &amp; Dokumen</div>
+        <div class="flex flex-col gap-1.5 text-slate-600 dark:text-slate-300">
+          <a href="mailto:4ndihandsome@gmail.com" class="hover:text-blue-600">4ndihandsome@gmail.com</a>
+          <a href="https://wa.me/6282299380532" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">WhatsApp: 082299380532</a>
+          <button type="button" onclick="openCvModal()" class="text-left hover:text-blue-600">Ringkasan CV</button>
+          <button type="button" onclick="downloadCvPdf()" class="text-left font-semibold text-blue-600 dark:text-blue-400 hover:underline">Download CV (PDF)</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div>© 2026 Andi Lutfi · Instrumentation &amp; Engineering Portfolio · Bandung, Jawa Barat.</div>
+      <a href="#beranda" class="hover:text-blue-600 font-medium">Kembali ke Atas ↑</a>
+    </div>
+  </footer>
+
+  <!-- Floating Back-to-Top Button (Section 6.10) -->
+  <button type="button" id="back-to-top" onclick="scrollToSection('beranda')" aria-label="Kembali ke atas halaman" class="fixed bottom-6 left-6 z-40 w-10 h-10 rounded-full bg-blue-600 text-white shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110">
+    ↑
+  </button>
+
+  <!-- ==================== MODAL 1: FULL 12-SECTION CASE STUDY & BLUEPRINT MODAL ==================== -->
+  <div id="blueprint-modal" role="dialog" aria-modal="true" aria-labelledby="bp-modal-title" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6 bg-slate-950/75 backdrop-blur-md">
+    <div class="glass-card w-full max-w-5xl rounded-[28px] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col" style="background-color: var(--card);">
+      <div class="flex items-center justify-between px-6 py-4 border-b" style="border-color: var(--ln);">
+        <div>
+          <span id="bp-modal-period" class="text-[11px] font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400 font-semibold">CASE STUDY &amp; SYSTEM ARCHITECTURE</span>
+          <h3 id="bp-modal-title" class="font-display text-lg sm:text-xl font-bold mt-0.5">Detail Studi Kasus Proyek</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="navigateCaseStudy(-1)" class="px-3 py-1.5 rounded-full text-xs font-medium border hover:border-blue-500" style="border-color: var(--ln);">← Sebelumnya</button>
+          <button type="button" onclick="navigateCaseStudy(1)" class="px-3 py-1.5 rounded-full text-xs font-medium border hover:border-blue-500" style="border-color: var(--ln);">Berikutnya →</button>
+          <button type="button" onclick="closeBlueprintModal()" aria-label="Tutup Studi Kasus" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-sm font-bold hover:bg-slate-200">✕</button>
+        </div>
+      </div>
+      <div id="bp-modal-content" class="p-6 sm:p-8 overflow-y-auto space-y-8 text-xs sm:text-sm leading-relaxed">
+        <!-- Populated dynamically with all 12 Case Study sections -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: STRUCTURED FULL CV VIEWER + DOWNLOAD ==================== -->
+  <div id="cv-modal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6 bg-slate-950/75 backdrop-blur-md">
+    <div class="glass-card w-full max-w-4xl rounded-[28px] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col" style="background-color: var(--card);">
+      <div class="flex items-center justify-between px-6 py-4 border-b" style="border-color: var(--ln);">
+        <div class="flex items-center gap-2.5">
+          <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-mono font-semibold">CV RESMI</span>
+          <h3 class="font-display text-base sm:text-lg font-bold">Curriculum Vitae — Andi Lutfi</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="downloadCvPdf()" class="px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white">⬇ Download PDF Asli</button>
+          <button type="button" onclick="closeCvModal()" aria-label="Tutup Modal CV" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">✕</button>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-6 text-xs sm:text-sm leading-relaxed">
+        <div class="text-center border-b pb-5" style="border-color: var(--ln);">
+          <h4 class="font-display text-2xl font-bold tracking-wide">ANDI LUTFI</h4>
+          <p class="text-xs font-mono text-slate-500 mt-1">
+            082299380532 | 4ndihandsome@gmail.com | andi lutfi | LinkedIn | Bandung, Jawa Barat
+          </p>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Pendidikan</h5>
+          <div class="p-4 rounded-2xl border" style="background-color: var(--bg); border-color: var(--ln);">
+            <div class="flex flex-wrap justify-between font-semibold">
+              <span>Universitas Pendidikan Indonesia — S1 Fisika Instrumentasi</span>
+              <span class="text-xs font-mono text-slate-500">Sep 2023 – Sekarang | Bandung, Jawa Barat</span>
+            </div>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600 dark:text-slate-300">
+              <li><strong>Fokus Riset:</strong> Karakterisasi film tipis TiO₂ untuk aplikasi sel surya yang diproduksi dan diuji secara eksklusif menggunakan instrumen <em>Dip-Coater</em> hasil rancangan dan rekayasa mandiri.</li>
+              <li><strong>Pencapaian:</strong> Kandidat seleksi Mahasiswa Berprestasi (Mawapres) tingkat universitas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Pengalaman Riset &amp; Profesional</h5>
+          <div class="space-y-3">
+            <div class="p-4 rounded-2xl border" style="background-color: var(--bg); border-color: var(--ln);">
+              <div class="flex flex-wrap justify-between font-semibold">
+                <span>IoT &amp; Hardware Engineering Researcher (Proyek Smart Farming) — Universitas Pendidikan Indonesia</span>
+                <span class="text-xs font-mono text-slate-500">Jun 2025 – Nov 2025</span>
+              </div>
+              <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600 dark:text-slate-300">
+                <li>Memimpin rekayasa arsitektur pemantauan tanah <em>multi-node</em>, mengintegrasikan ESP32, komunikasi RS-485, dan modul LoRa untuk operasional jarak jauh (10 km) tanpa ketergantungan internet.</li>
+                <li>Membangun <em>IoT backend</em> (MQTT, Node-RED, InfluxDB) dan mengimplementasikan algoritma logika <em>fuzzy</em> serta fungsi <em>trapezoid</em> berbobot untuk menghasilkan skor lahan secara <em>real-time</em>.</li>
+                <li><strong>Dampak:</strong> Sistem berhasil dihilirisasi dan terbukti secara langsung meningkatkan kualitas panen kopi petani. Tervalidasi melalui liputan media nasional Tempo.co.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-2xl border" style="background-color: var(--bg); border-color: var(--ln);">
+              <div class="flex flex-wrap justify-between font-semibold">
+                <span>R&amp;D Hardware Developer (Proyek Mesin Dip-Coater Otomatis) — Universitas Pendidikan Indonesia</span>
+                <span class="text-xs font-mono text-slate-500">Mei 2026 – Sep 2026</span>
+              </div>
+              <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600 dark:text-slate-300">
+                <li>Dipercaya oleh Guru Besar universitas untuk merekayasa mesin <em>dip-coating</em> otomatis terintegrasi IoT guna menunjang kebutuhan riset material tingkat lanjut.</li>
+                <li>Merancang mekanika presisi dan kontrol aktuator berbasis perhitungan <em>step pulse</em> dengan <em>safety offset</em> sensor optik, serta ruang isolasi termal berantarmuka layar sentuh kapasitif.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-2xl border" style="background-color: var(--bg); border-color: var(--ln);">
+              <div class="flex flex-wrap justify-between font-semibold">
+                <span>Quality Assurance &amp; Calibration Intern — PT Pindad (Persero)</span>
+                <span class="text-xs font-mono text-slate-500">Mar 2026 – Mei 2026</span>
+              </div>
+              <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600 dark:text-slate-300">
+                <li>Melaksanakan prosedur <em>quality assurance</em> (QA) dan kalibrasi instrumen presisi di laboratorium pengujian material.</li>
+                <li>Melakukan inspeksi kualitas dan pemantauan parameter secara langsung di fasilitas lini produksi utama (<em>on-site</em>) guna memastikan seluruh proses manufaktur mematuhi standar toleransi ketat industri pertahanan.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Hak Kekayaan Intelektual (Paten)</h5>
+          <ul class="list-disc list-inside space-y-1.5 text-slate-600 dark:text-slate-300 p-4 rounded-2xl border" style="background-color: var(--bg); border-color: var(--ln);">
+            <li><strong>Inventor:</strong> "Sistem Multimeter Portabel Pengukur Kondisi Tanah Multi-Lahan Berbasis IoT" (Bersama Dr. Selly Ferani, S.Pd., M.Si).</li>
+            <li><strong>Inventor:</strong> "Sistem Multimeter Portabel Pengukur Kondisi Tanah Jarak Jauh Tanpa Jaringan Internet" (Bersama Dr. Selly Ferani, S.Pd., M.Si).</li>
+            <li><strong>Inventor:</strong> "Sistem Pelapis Celup Otomatis Dengan Ruang Tertutup Dan Pemanas Terintegrasi Berbasis IoT" (Bersama Prof. Dr. Eka Cahya Prima &amp; Prof. Dr. Endi Suhendi).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: IMAGE LIGHTBOX (SECTION 4 & 6.6) ==================== -->
+  <div id="lightbox-modal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/90 backdrop-blur-lg" onclick="closeLightbox()">
+    <div class="max-w-4xl w-full flex flex-col items-center gap-4" onclick="event.stopPropagation()">
+      <div class="w-full flex items-center justify-between text-white">
+        <span id="lightbox-caption" class="text-xs sm:text-sm font-medium">Dokumentasi Proyek</span>
+        <button type="button" onclick="closeLightbox()" class="px-3.5 py-1.5 rounded-full text-xs bg-white/15 hover:bg-white/25 text-white">Tutup ✕</button>
+      </div>
+      <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Pratinjau Gambar Dokumentasi" class="max-h-[78vh] w-auto rounded-2xl border border-white/15 shadow-2xl object-contain" />
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 pointer-events-none opacity-0 translate-y-4 transition-all duration-300">
+    <div class="px-5 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xl flex items-center gap-2.5 text-xs font-medium">
+      <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+      <span id="toast-message">Berhasil disalin ke clipboard</span>
+    </div>
+  </div>
+
+  <!-- ==================== APPLICATION JAVASCRIPT ==================== -->
+  <script src="js/main.js"></script>
+</body>
+</html>
